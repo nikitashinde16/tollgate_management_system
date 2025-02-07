@@ -1,0 +1,12 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+body{
+	background-image: url(https://live.staticflickr.com/7758/18134895316_c02ecc9d5a_b.jpg);
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+}

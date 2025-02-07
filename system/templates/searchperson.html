@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>searchperson</title>
+	{%include "head.html"%}
+</head>
+<body style="background-image: url(https://live.staticflickr.com/7758/18134895316_c02ecc9d5a_b.jpg); background-size:1500px;">
+	{%include "menu.html"%}
+	<h2 align="center" style="color:white">Search Users</h2>
+	<center style="color:white">{{msg}}</center>
+	<center>
+	<form name="frmsearch" method="post">
+					<select  name="Searchby"  autofocus="on">
+						<option value="">Searchby</option>
+						<option value="1">Full Name</option>
+						<option value="2">Contact Number</option>
+						<option value="3">Username</option>
+					</select>
+					<input type="text" name="value" required >
+				<input type="submit" name="btnsubmit" value="Search" class="btn btn-primary">
+		{%csrf_token%}
+	</form>
+</center>
+</br>
+{% if data %}
+<table align="center" class="table-table-bordered" border="1" >
+	<tr>
+		<th style="color:white">Full Name</th>
+		<th style="color:white">Contact Number</th>
+		<th style="color:white">Address</th>
+		<th style="color:white">Gender</th>
+		<th style="color:white">Date Of Birth</th>
+		<th style="color:white">Qualification</th>
+		<th style="color:white">Username</th>
+		
+		
+
+	</tr>
+	{%for d in data%}
+	<tr>
+		<td style="color:white">{{d.fullname}}</td>
+		<td style="color:white">{{d.contactnumber}}</td>
+		<td style="color:white">{{d.address}}</td>
+		<td style="color:white">{{d.gender}}</td>
+		<td style="color:white">{{d.dateofbirth}}</td>
+		<td style="color:white">{{d.qualification}}</td>
+		<td style="color:white">{{d.username}}</td>
+		<td>
+			<form name="frmdelete" method="POST">
+				<input type="hidden" name="sid" value="{{d.id}}">
+				
+				{%csrf_token%}
+			</form>
+		</td>
+		</tr>
+		{% endfor %}	
+</table>
+{% endif %}
+</body>
+</html>
+

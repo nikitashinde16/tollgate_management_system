@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Student</title>
+	{%include "head.html"%}
+</head>
+<body style="background-image: url(https://live.staticflickr.com/7758/18134895316_c02ecc9d5a_b.jpg); background-size:1500px">
+	{%include "menu.html"%}
+	<h2 align="center" style="color: white;">Registered Users</h2>
+	<center style="color: white;">{{msg}}</center>
+	<table align="center" border="1">
+		<tr>
+			<th style="color: white;">Full Name</th>
+			<th style="color: white;">Contact Number</th>
+			<th style="color: white;">Address</th>
+			<th style="color: white;">Gender</th>
+			<th style="color: white;">Date of Birth</th>
+			<th style="color: white;">Qualification</th>
+			<th style="color: white;">User Name</th>
+			<th style="color: white;">Delete</th>
+
+
+
+		</tr>
+		{% for d in data %}
+		<tr>
+			<td style="color: white;">{{d.fullname}}</td>
+			<td style="color: white;">{{d.contactnumber}}</td>
+			<td style="color: white;">{{d.address}}</td>
+			<td style="color: white;">{{d.gender}}</td>
+			<th style="color: white;">{{d.dateofbirth}}</th>
+			<td style="color: white;">{{d.qualification}}</td>
+			<td style="color: white;">{{d.username}}</td>
+			<td>
+				<form name="frm" method="post">
+					<input type="hidden" name="sid" value="{{d.id}}">
+					<input class="btn btn-danger" type="submit" name="delete" value="X">
+					{% csrf_token %}
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+		
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form</title>
+	{%include "head.html"%}
+</head>
+<body style="background-image: url(https://japan-web-magazine.com/keyword/beautiful/26.jpg); background-size: 1500px;">
+	{%include "menu3.html"%}
+	<h2 align="center" style="color: white;">Login Form</h2>
+
+	<center>{{msg}}</center>
+	<table align="center" >
+	<tr>
+		<td>
+			<form autocomplete="off" name="login" method="post">
+				<font color="white">User Name</font>
+				<input class="form-control" type="text" name="username" autofocus="on">
+				<font color="white">Password</font>
+				<center>
+				<input class="form-control" type="password" name="password" required>
+			</br>
+			<input type="submit" name="login" value="Submit" class="btn btn-success">
+			<input type="reset" name="cancel" value="Cancel" class="btn btn-warning">
+		</center>
+		{%csrf_token%}
+				
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

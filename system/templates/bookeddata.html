@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+
+	<title>Student</title>
+	{%include "head.html"%}
+	
+	
+</head>
+<body>
+	{%include "menu2.html"%}
+	<h2 align="center">Ticket Booked Users</h2>
+	<center>{{msg}}</center>
+	<table align="center" border="1">
+		<tr>
+			<th>Toll Number</th>
+			<th>Start Point</th>
+			<th>End Point</th>
+			<th>Ticket Type</th>
+			<th>Cost</th>
+			<th>Delete</th>
+
+
+
+		</tr>
+		{% for d in data %}
+		<tr>
+			<td>{{d.tollnumber}}</td>
+			<td>{{d.startpoint}}</td>
+			<td>{{d.endpoint}}</td>
+			<td>{{d.tickettype}}</td>
+			<th>{{d.cost}}</th>
+			<td>
+				<form name="frm" method="post">
+					<input type="hidden" name="sid" value="{{d.id}}">
+					<input class="btn btn-danger" type="submit" name="data" value="X">
+					{% csrf_token %}
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+		
+
+</body>
+</html>

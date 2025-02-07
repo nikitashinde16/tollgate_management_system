@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Student</title>
+	{%include "head.html"%}
+</head>
+<body style="background-image: url(https://live.staticflickr.com/7758/18134895316_c02ecc9d5a_b.jpg); background-size:1500px;">
+	{%include "menu2.html"%}
+	<h2 align="center" style="color:white;">Payment Details</h2>
+	<center style="color:white;">{{msg}}</center>
+	<table align="center" border="1">
+		<tr>
+			<th style="color:white;">Card</th>
+			<th style="color:white;">Name on Card</th>
+			<th style="color:white;">Card Number</th>
+			<th style="color:white;">Amount</th>
+			<th style="color:white;">Delete</th>
+			
+
+
+
+		</tr>
+		{% for d in data %}
+		<tr>
+			<td style="color:white;">{{d.cardaccepted}}</td>
+			<td style="color:white;">{{d.nameoncard}}</td>
+			<td style="color:white;">{{d.cardnumber}}</td>
+			<td style="color:white;">{{d.amount}}</td>
+			
+			<td>
+				<form name="frm" method="post">
+					<input type="hidden" name="sid" value="{{d.id}}">
+					<input class="btn btn-danger" type="submit" name="data" value="X">
+					{% csrf_token %}
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+		
+
+</body>
+</html>

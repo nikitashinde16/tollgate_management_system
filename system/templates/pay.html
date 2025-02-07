@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hi</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">   
+    {%include "head.html"%}
+    
+</head>
+<body style="background-image: url(https://live.staticflickr.com/7758/18134895316_c02ecc9d5a_b.jpg); background-size:1500px;">
+    {%include "menu2.html"%}
+    <h2 align="center" style="color:white;">Payment</h2>
+    <center style="color: white;">{{msg}}</center>
+    <table align ="center" width ="60%" >
+        <tr>
+        <td>            
+            <form  name="register" autocomplete="off" method="POST">
+                <font color ="red">*</font>
+                    <font color ="white">Card accepted</font>
+                
+
+                    
+                    <select class="form-control"  name="cardaccepted">
+                    <option>choose card</option>
+                    <option>Credit Card</option>
+                    <option>Debit Card</option>
+                    <option>FAST tag</option>
+                    <option>NEFT</option>
+                </select><br>
+                    <font color ="red">*</font>
+                    <font color ="white">Name on Card</font>
+                    <input required  class="form-control" type="charector" name="nameoncard"><br>
+                    <font color ="red">*</font>
+                    <font color ="white">Card Number</font>
+                    <input required  class="form-control" type="number" name="cardnumber"><br>
+                    <font color ="red">*</font>
+                    <font color ="white">Amount</font>
+                    <input required  class="form-control" type="charector" name="amount"><br>
+                    
+                    <center>
+                        <input class="btn btn-success" type="submit" name="Pay" value="Pay" align="center">
+                        
+                    </center>
+                    {%csrf_token%}
+            </form>
+        </td>
+    </tr>
+    </table>
+
+</body>
+</html>

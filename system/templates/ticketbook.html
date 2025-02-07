@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head >
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hi</title>
+	{%include "head.html"%}
+</head>
+<body style="background-image: url(https://live.staticflickr.com/7758/18134895316_c02ecc9d5a_b.jpg); background-size:1500px;">
+	{%include "menu2.html"%}
+	<h2 align="center" style="color:white;">Vehicle Entry Form</h2>
+	<center style="color: white;">{{msg}}</center>
+	<table align ="center" width ="60%">
+		<tr>
+		<td>			
+			<form  name="register" autocomplete="off" method="POST">
+				<font color ="red">*</font>
+				<font color ="white">State</font>
+				<select class="form-control" name="state">
+					<option>Select State</option>
+					<option>Karnataka</option>
+					<option>Maharashtra</option>
+					<option>Telangana</option>
+					<option>Andhra Pradesh</option>
+					<option>Gujarat</option>
+					<option>Kerala</option>
+					<option>West Bengal</option>
+					<option>Madhya Pradesh</option>
+				</select><br>
+					<font color="red">*</font>
+					<font color ="white">NH Number</font>
+					<input required  class="form-control" type="character" name="nhnumber"><br>
+				 </select><br>
+					<font color="red">*</font>
+					<font color ="white">Vehicle Type</font>
+					<select name="vehicletype" class="form-control">
+						<option>Select Vehicle</option>
+						<option>Taxi</option>
+						<option>Van</option>
+						<option>Car</option>
+						<option>Ambulance</option>
+						<option>Car</option>
+						<option>Jeep</option>
+						<option>Car</option>
+						<option>Tata ACE</option>
+						<option>Car</option>
+						<option>Truck</option>
+					</select><br>
+					<font color ="red">*</font>
+					<font color ="white">Vehicle Number</font>
+					<input type="character" name="vehiclenumber" required class="form-control"><br>
+					<font color="red">*</font>
+					<font color ="white">Select Plan</font>
+					<select name="selectplan" class="form-control">
+						<option>Select Plan</option>
+						<option>Single</option>
+						<option>Return</option>
+						<option>Daily Pass</option>
+						<option>Montly</option>
+					</select><br>
+					<font color ="red">*</font>
+					<font color ="white">Contact Number</font>
+					<input type="number" name="contactnumber" class="form-control" required>
+					<br/>
+					<center>
+						<input class="btn btn-success" type="submit" name="submit" value="submit">
+						<input type="reset" name="cancel" value="Cancel" class="btn btn-warning">
+					</center>
+					{%csrf_token%}
+            </form>
+        </td>
+    </tr>
+    </table>
+
+</body>
+</html>
